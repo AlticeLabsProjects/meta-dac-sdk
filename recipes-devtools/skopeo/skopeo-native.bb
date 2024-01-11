@@ -14,7 +14,7 @@ RDEPENDS_${PN} = " \
 "
 
 SRC_URI = " \
-    git://github.com/containers/skopeo.git;branch=release-1.2;protocol=git \
+    git://github.com/containers/skopeo.git;branch=release-1.2;protocol=https \
 "
 
 SRCREV ="e72dd9c5c834f3cd7fb8b1aab4021d9d4412f305"
