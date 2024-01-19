@@ -3,10 +3,9 @@ SECTION="devtools"
 LICENSE= "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=32a3c2c37f9b6d1a2b8d9a636844d6cd"
 
-PV = "1.0"
-
-SRC_URI = "git://github.com/rdkcentral/BundleGen.git;protocol=https;branch=master;name=bundlegen-${PV};rev=8022d4980a45acf560834735c161d98af6f9a9e0"
+SRC_URI = "git://github.com/rdkcentral/BundleGen.git;protocol=https;branch=master"
 SRC_URI:append = "file://test.sh"
+SRC_REV = "8022d4980a45acf560834735c161d98af6f9a9e0"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}:"
 
