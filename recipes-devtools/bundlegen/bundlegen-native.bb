@@ -17,6 +17,7 @@ DEPENDS = "python3-native skopeo-native umoci-native python3-humanfriendly-nativ
 
 FILES:${PN}:append_class-nativesdk = " ${SDKPATHNATIVE}"
 FILES:${PN}:append = " ${D}${prefix}/* ${D}{prefix}/templates/*/*.json"
+FILES:${PN}:append = " ${D}{prefix}/schema/*.json"
 FILES:${PN}:append = " ${D}{prefix}/test/testapp.sh"
 FILES:${PN}:append = " ${D}{prefix}/test.sh"
 

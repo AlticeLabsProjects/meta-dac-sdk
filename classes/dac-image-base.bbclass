@@ -14,14 +14,14 @@ IMAGE_INSTALL:append = " ldconfig"
 IMAGE_INSTALL:append = " dash"
 
 # fix for update_gio_module_cache and update_font_cache error on do_rootfs
-DEPENDS += "${@bb.utils.contains('BUNDLE_GENERATE', '1', 'qemuwrapper-cross', '', d)}"
+DEPENDS:append = " ${@bb.utils.contains('BUNDLE_GENERATE', '1', 'qemuwrapper-cross', '', d)}"
 
 IMAGE_LINGUAS = " "
 LICENSE = "MIT"
 
 APP_METADATA_PATH = " "
 
-IMAGE_CMD_oci:append() {
+IMAGE_CMD:oci:append() {
     file_name="${IMAGE_NAME}${IMAGE_NAME_SUFFIX}-oci-${OCI_IMAGE_TAG}-${OCI_IMAGE_ARCH}${OCI_IMAGE_SUBARCH:+"-$OCI_IMAGE_SUBARCH"}-linux.oci-image.tar"
     ln -fs ${file_name} ${IMAGE_BASENAME}.tar
 }

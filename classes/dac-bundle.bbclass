@@ -1,4 +1,4 @@
-DEPENDS = "bundlegen-native"
+DEPENDS:append = " bundlegen-native"
 
 BUNDLE_PLATFORM ?= "rpi3_reference_vc4"
 BUNDLE_OPTIONS  ?= "-m normal --createmountpoints"
