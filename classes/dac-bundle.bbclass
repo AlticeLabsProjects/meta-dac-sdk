@@ -10,13 +10,14 @@ make_bundle() {
   BUNDLEGEN_SYSROOTPATH=$(which bundlegen)
   BUNDLEGEN_SYSROOTPATH=$(dirname $BUNDLEGEN_SYSROOTPATH)/../share/bundlegen/
   BUNDLEGEN_WORKINGDIR=$(dirname $BUNDLEGEN_SYSROOTPATH)/../share/
+
   if [ -z "${BUNDLE_TEMPLATE_PATH+x}" ]; then
     BUNDLE_TEMPLATE_PATH=${BUNDLEGEN_SYSROOTPATH}/templates
   fi
 
   mkdir -p ${IMGDEPLOYDIR}/bundle
   mkdir -p ${TOPDIR}/bundles/${BUNDLE_PLATFORM}
-  tar -xf ${IMGDEPLOYDIR}/${IMAGE_BASENAME}.tar -C ${IMGDEPLOYDIR}/bundle
+  tar -xf ${IMGDEPLOYDIR}/${IMAGE_BASENAME}.tar --strip-components 1 -C ${IMGDEPLOYDIR}/bundle
 
   cd $BUNDLEGEN_WORKINGDIR
   bundlegen -vvv generate --searchpath ${BUNDLE_TEMPLATE_PATH} ${BUNDLE_OPTIONS} --platform ${BUNDLE_PLATFORM} oci:${IMGDEPLOYDIR}/bundle:latest ${TOPDIR}/bundles/${BUNDLE_PLATFORM}/${IMAGE_BASENAME}_bundle${BUNDLE_SUFFIX}
