@@ -1,7 +1,7 @@
 DEPENDS:append = " bundlegen-native"
 
-BUNDLE_PLATFORM ?= "rpi3_reference_vc4"
-BUNDLE_OPTIONS  ?= "-m normal --createmountpoints"
+BUNDLE_PLATFORM ?= "rpi3_reference_vc4_dunfell"
+BUNDLE_OPTIONS ?= "-m normal --createmountpoints"
 
 PSEUDO_IGNORE_PATHS .= ",${TOPDIR}/bundles"
 

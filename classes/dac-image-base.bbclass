@@ -8,8 +8,7 @@ inherit ${@bb.utils.contains("BUNDLE_GENERATE", "1", "dac-bundle", "", d)}
 
 PREFERRED_PROVIDER_virtual/kernel = "linux-dummy"
 
-IMAGE_INSTALL = " "
-IMAGE_INSTALL:append = " glibc"
+IMAGE_INSTALL = "glibc"
 IMAGE_INSTALL:append = " ldconfig"
 IMAGE_INSTALL:append = " dash"
 
@@ -39,4 +38,3 @@ do_rootfs:append() {
         desired_path = path.abspath(path.join(str(d.getVar('D')), "..", "rootfs", "appmetadata.json"))
         system(f"cp -f {appmetadata_path} {desired_path}")
 }
-
