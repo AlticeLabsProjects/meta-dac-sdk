@@ -18,7 +18,7 @@ make_bundle() {
   mkdir -p ${IMGDEPLOYDIR}/bundle
   mkdir -p ${TOPDIR}/bundles/${BUNDLE_PLATFORM}
   tar -xf ${IMGDEPLOYDIR}/${IMAGE_BASENAME}.tar --strip-components 1 -C ${IMGDEPLOYDIR}/bundle
-
+  
   cd $BUNDLEGEN_WORKINGDIR
   bundlegen -vvv generate --searchpath ${BUNDLE_TEMPLATE_PATH} ${BUNDLE_OPTIONS} --platform ${BUNDLE_PLATFORM} oci:${IMGDEPLOYDIR}/bundle:latest ${TOPDIR}/bundles/${BUNDLE_PLATFORM}/${IMAGE_BASENAME}_bundle${BUNDLE_SUFFIX}
   ln -sf ${TOPDIR}/bundles/${BUNDLE_PLATFORM}/${IMAGE_BASENAME}_bundle${BUNDLE_SUFFIX}.tar.gz ${TOPDIR}/bundles/${BUNDLE_PLATFORM}/${IMAGE_BASENAME}_bundle.tgz
